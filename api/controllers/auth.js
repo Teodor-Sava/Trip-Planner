@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+// google oauth
+const {
+    google
+} = require('googleapis');
 
+// own files
 const User = require('../models/user');
 const config = require('../../config/config');
 

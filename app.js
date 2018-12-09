@@ -5,10 +5,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const userRoutes = require("./api/routes/user");
+const placeRoutes = require("./api/routes/places");
+const migrationsRoutes = require("./api/routes/migrations")
 
 mongoose.connect(
-  "mongodb://localhost:27017/trip_planner",
-  {
+  "mongodb://localhost:27017/trip_planner", {
     useNewUrlParser: true
   },
   err => {
@@ -43,13 +44,14 @@ app.use((req, res, next) => {
 
 // route handler
 app.use("/user", userRoutes);
-
+app.use("/places", placeRoutes)
+app.use("/migrations", migrationsRoutes)
 // route error handler
-app.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
-});
+// app.use((req, res, next) => {
+//   const error = new Error("Not found");
+//   error.status = 404;
+//   next(error);
+// });
 
 // server error handler
 app.use((error, req, res, next) => {
