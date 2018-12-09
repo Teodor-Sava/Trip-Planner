@@ -101,3 +101,7 @@ exports.login = (req, res, next) => {
             console.log(err);
         })
 }
+
+exports.googleAuth = (req, res, next) => {
+
+}
