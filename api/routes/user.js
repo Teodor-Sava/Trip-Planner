@@ -31,4 +31,6 @@ router.delete('/:userId', (req, res, next) => {
         })
 })
 
+router.post('/google_auth', AuthController.googleAuth);
+
 module.exports = router;
