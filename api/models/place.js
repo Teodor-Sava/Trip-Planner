@@ -19,7 +19,14 @@ const placeSchema = mongoose.Schema({
     },
     city: {
         type: 'ObjectId',
-        ref: 'City'
+        ref: 'City',
+        required: true
+    },
+    rating: {
+        type: Number
+    },
+    price_level: {
+        type: Number
     },
     tags: [{
         type: 'ObjectId',
